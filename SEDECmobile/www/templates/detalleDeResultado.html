@@ -1,0 +1,26 @@
+<ion-view title="Detalle de Resultado" id="page2">
+  <ion-content padding="true" class="has-header">
+    <div class="list card" id="detalleDeResultado-card24">
+      <ion-item id="detalleDeResultado-list-item15">{{data.processName}} - {{data.analysisId}}</ion-item>
+      <div class=" item item-image">
+        <img src={{data.samplePicture}} style="display: block; width: 100%; height: auto; margin-left: auto; margin-right: auto;">
+      </div>
+      <ion-list id="detalleDeResultado-list4">
+        <ion-item class="item-icon-right" id="detalleDeResultado-list-item26">{{data.notificationDatetime}}
+          <i class="icon ion-clock"></i>
+        </ion-item>
+        <div class="item item-body" id="detalleDeResultado-list-item-container11">
+          <div id="detalleDeResultado-markdown14" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">Descripción: {{data.sampleDescription}}</p>
+          </div>
+        </div>
+        <div class="item item-body" id="detalleDeResultado-list-item-container10">
+          <div id="detalleDeResultado-markdown13" class="show-list-numbers-and-dots">
+            <p style="margin-top:0px;color:#000000;">Resultado: {{data.resultMessage}}</p>
+          </div>
+        </div>
+      </ion-list>
+    </div>
+    <a ui-sref="menu.resultados" id="detalleDeResultado-button1" class="button button-positive  button-block">Regresar</a>
+  </ion-content>
+</ion-view> 

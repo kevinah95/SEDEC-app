@@ -1,0 +1,11 @@
+<ion-view title="Resultados" id="page1" ng-init="callResults()">
+  <ion-content padding="true" class="has-header">
+    <ion-list id="resultados-list2">
+      <ion-item class="item-thumbnail-left" id="resultados-list-item12" ui-sref="menu.detalleDeResultado" ng-repeat="result in results" ng-click="select($index)">
+        <img src="{{result.samplePicture}}">
+        <h2>{{result.processName}} - {{result.analysisId}}</h2>
+        <p>{{result.notificationDatetime}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
