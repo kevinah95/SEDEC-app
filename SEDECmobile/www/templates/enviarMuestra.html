@@ -1,0 +1,30 @@
+<ion-view title="Enviar Muestra" id="page1">
+  <ion-nav-buttons side="left" class="has-header">
+    <button class="button button-icon icon ion-android-menu" ng-click="openMenu()"></button>
+  </ion-nav-buttons>
+  <ion-content padding="true" class="has-header">
+    <br></br>
+    <div flow-init="{target:'/uploader', maxChunkRetries: 1, singleFile: true}" flow-name="uploader.flow" flow-files-added="processFiles($files)">
+      <img ng-hide="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}" type="file" name="defaultImage" src="img/uploadImg.png"
+        style="display: block; width: 44%; height: auto; margin-left: auto; margin-right: auto;">
+      <img ng-show="$flow.files.length" flow-img="$flow.files[0]" class="ui medium centered image" name="uploadedImage" style="display: block; width: 44%; height: auto; margin-left: auto; margin-right: auto;">
+      <button id="enviarMuestra-button1" style="border-radius:71px 71px 71px 71px;" class="button button-stable  button-block button-clear"
+        ng-show="$flow.files.length" flow-btn flow-attrs="{accept:'image/*'}">Cambiar imagen</button>
+    </div>
+    <br></br>
+    <form id="enviarMuestra-form1" class="list">
+      <label class="item item-input" id="enviarMuestra-input2">
+        <span class="input-label">Descripción</span>
+        <input id="description" type="text" placeholder="Descripción">
+      </label>
+      <label class="item item-select" id="enviarMuestra-select1">
+        <span class="input-label">Enfermedad</span>
+        <select ng-model="diseaseId" ng-change="setDiseaseId(diseaseId)">
+          <option ng-repeat="disease in diseaseList" value="{{disease.processId}}">{{disease.processName}}</option>
+        </select>
+      </label>
+    </form>
+    <button id="enviarMuestra-button10" class="button button-positive  button-block" ng-click="sendSample()">Enviar</button>
+    <button id="enviarMuestra-button11" class="button button-assertive  button-block" ng-click="cancel()">Cancelar</button>
+  </ion-content>
+</ion-view>
