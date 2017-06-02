@@ -141,8 +141,7 @@ angular.module('app.controllers', [])
 
 
 
-.controller('enviarMuestraCtrl', ['$scope', '$http', '$stateParams', '$state', '$ionicSideMenuDelegate', '$ionicPopup', 'toastr',
-    function($scope, $http, $stateParams, $state, $ionicSideMenuDelegate, $ionicPopup, toastr) {
+.controller('enviarMuestraCtrl', function($scope, $http, $stateParams, $state, $ionicSideMenuDelegate, $ionicPopup, toastr, $rootScope) {
 
         $scope.imageStrings = [];
         $scope.analysisArray = {};
@@ -177,7 +176,7 @@ angular.module('app.controllers', [])
             if (valid) {
                 var uploadedImage = $scope.imageStrings[0];
                 $scope.analysisArray = {
-                    "userId": 1, //Should be sessionStorage
+                    "userId": $rootScope.currentUser.userId,
                     "processId": $scope.diseaseID,
                     "description": document.getElementById('description').value,
                     "image": uploadedImage
@@ -191,7 +190,8 @@ angular.module('app.controllers', [])
 
         $scope.getDiseases = function() {
             var objeto = {
-                Id: 1 //Should be sessionStorage
+
+                Id: $rootScope.currentUser.userId //Should be sessionStorage
             }
             $http({
                 method: 'POST',
@@ -231,7 +231,7 @@ angular.module('app.controllers', [])
         }
 
     }
-])
+)
 
 .controller('detalleDeResultadoCtrl', ['$scope', '$stateParams', '$rootScope', // The following is the constructor function for this page's controller. See https://docs.angularjs.org/guide/controller
     // You can include any angular dependencies as parameters for this function
